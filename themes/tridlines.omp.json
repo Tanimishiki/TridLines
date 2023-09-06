@@ -106,8 +106,11 @@
                         "mapped_locations_enabled": true,
                         "mapped_locations": {
                             "~/Desktop": "desktop",
+                            "~/OneDrive/Desktop": "desktop",
                             "~/Documents": "documents",
+                            "~/OneDrive/Documents": "documents",
                             "~/Documents/GitHub": "github",
+                            "~/OneDrive/Documents/GitHub": "github",
                             "C:/Users": "users",
                             "C:": "root"
                         }
