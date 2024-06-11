@@ -1,0 +1,83 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "final_space": true,
+    "version": 2,
+    "blocks": [
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "newline": true,
+            "segments": [
+                {
+                    "type": "text",
+                    "style": "powerline",
+                    "foreground": "#d8d8d8",
+                    "template": "╭─\uf43a"
+                },
+                {
+                    "type": "executiontime",
+                    "style": "plain",
+                    "foreground": "#d8d8d8",
+                    "template": " {{ if gt .Code 0 }}<#ff625a> {{ .FormattedMs }}</>{{ else }}<#5affa4> {{ .FormattedMs }}</>{{ end }}",
+                    "properties": {
+                        "threshold": 0
+                    }
+                },
+                {
+                    "type": "path",
+                    "style": "diamond",
+                    "foreground": "#ffffff",
+                    "template": " <#0373fc>{{ path \"\udb80\ude4b\" .Location }} {{ lower .Path }}</>",
+                    "properties": {
+                        "style": "agnoster_short",
+                        "folder_icon": "\uf141",
+                        "home_icon": "home",
+                        "folder_separator_icon": " / ",
+                        "mapped_locations_enabled": true,
+                        "mapped_locations": {
+                            "~/Desktop": "desktop",
+                            "~/OneDrive/Desktop": "desktop",
+                            "~/Documents": "documents",
+                            "~/OneDrive/Documents": "documents",
+                            "~/Documents/GitHub": "github",
+                            "~/OneDrive/Documents/GitHub": "github",
+                            "C:/Users": "users",
+                            "C:": "root"
+                        }
+                    }
+                },
+                {
+                    "type": "git",
+                    "style": "diamond",
+                    "foreground": "#63ffb9",
+                    "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} ",
+                    "properties": {
+                        "branch_icon": "\ue725 ",
+                        "fetch_status": true,
+                        "fetch_stash_count": true,
+                        "fetch_upstream_icon": true
+                    }
+                }
+            ]
+        },
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "newline": true,
+            "segments": [
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#d8d8d8",
+                    "template": "╰─"
+                },
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#d8d8d8",
+                    "template": "\u27A4"
+                }
+            ]
+        }
+    ]
+}

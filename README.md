@@ -5,6 +5,13 @@
 
 ![Directory Path](./assets/directory_path.gif)
 
+# TridLines Simplified
+![Normal](./assets/simplified.png)
+
+![Git](./assets/simplified2.png)
+
+![Normal](./assets/simplified.gif)
+
 # Getting Started
 If you're new using a custom theme, you need to install the [Oh My Posh](https://ohmyposh.dev/docs/installation/windows) and follow the instructions.
 
