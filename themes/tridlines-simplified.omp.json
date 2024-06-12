@@ -12,16 +12,7 @@
                     "type": "text",
                     "style": "powerline",
                     "foreground": "#d8d8d8",
-                    "template": "╭─\uf43a"
-                },
-                {
-                    "type": "executiontime",
-                    "style": "plain",
-                    "foreground": "#d8d8d8",
-                    "template": " {{ if gt .Code 0 }}<#ff625a> {{ .FormattedMs }}</>{{ else }}<#5affa4> {{ .FormattedMs }}</>{{ end }}",
-                    "properties": {
-                        "threshold": 0
-                    }
+                    "template": "╭─\uf2be  {{ .UserName }} on"
                 },
                 {
                     "type": "path",
@@ -49,13 +40,22 @@
                 {
                     "type": "git",
                     "style": "diamond",
-                    "foreground": "#63ffb9",
-                    "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} ",
+                    "foreground": "#ffce63",
+                    "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}",
                     "properties": {
                         "branch_icon": "\ue725 ",
                         "fetch_status": true,
                         "fetch_stash_count": true,
                         "fetch_upstream_icon": true
+                    }
+                },
+                {
+                    "type": "executiontime",
+                    "style": "plain",
+                    "foreground": "#d8d8d8",
+                    "template": " {{ if gt .Code 0 }}<#ff625a>\uf252 {{ .FormattedMs }}</>{{ else }}<#5affa4>\uf253 {{ .FormattedMs }}</>{{ end }}",
+                    "properties": {
+                        "threshold": 0
                     }
                 }
             ]
