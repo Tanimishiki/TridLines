@@ -1,83 +1,102 @@
 {
-    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-    "final_space": true,
-    "version": 2,
-    "blocks": [
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
         {
-            "type": "prompt",
-            "alignment": "left",
-            "newline": true,
-            "segments": [
-                {
-                    "type": "text",
-                    "style": "powerline",
-                    "foreground": "#d8d8d8",
-                    "template": "╭─\uf2be  {{ .UserName }} on"
-                },
-                {
-                    "type": "path",
-                    "style": "diamond",
-                    "foreground": "#ffffff",
-                    "template": " <#0373fc>{{ path \"\udb80\ude4b\" .Location }} {{ lower .Path }}</>",
-                    "properties": {
-                        "style": "agnoster_short",
-                        "folder_icon": "\uf141",
-                        "home_icon": "home",
-                        "folder_separator_icon": " / ",
-                        "mapped_locations_enabled": true,
-                        "mapped_locations": {
-                            "~/Desktop": "desktop",
-                            "~/OneDrive/Desktop": "desktop",
-                            "~/Documents": "documents",
-                            "~/OneDrive/Documents": "documents",
-                            "~/Documents/GitHub": "github",
-                            "~/OneDrive/Documents/GitHub": "github",
-                            "C:/Users": "users",
-                            "C:": "root"
-                        }
-                    }
-                },
-                {
-                    "type": "git",
-                    "style": "diamond",
-                    "foreground": "#ffce63",
-                    "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}",
-                    "properties": {
-                        "branch_icon": "\ue725 ",
-                        "fetch_status": true,
-                        "fetch_stash_count": true,
-                        "fetch_upstream_icon": true
-                    }
-                },
-                {
-                    "type": "executiontime",
-                    "style": "plain",
-                    "foreground": "#d8d8d8",
-                    "template": " {{ if gt .Code 0 }}<#ff625a>\uf252 {{ .FormattedMs }}</>{{ else }}<#5affa4>\uf253 {{ .FormattedMs }}</>{{ end }}",
-                    "properties": {
-                        "threshold": 0
-                    }
-                }
-            ]
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "\u256d\u2500\uf2be  {{ lower .UserName }} on",
+          "foreground": "#d8d8d8",
+          "type": "text",
+          "style": "powerline"
         },
         {
-            "type": "prompt",
-            "alignment": "left",
-            "newline": true,
-            "segments": [
-                {
-                    "type": "text",
-                    "style": "plain",
-                    "foreground": "#d8d8d8",
-                    "template": "╰─"
-                },
-                {
-                    "type": "text",
-                    "style": "plain",
-                    "foreground": "#d8d8d8",
-                    "template": "\u27A4"
-                }
-            ]
+          "properties": {
+            "cache_duration": "none",
+            "folder_icon": "\uf141",
+            "folder_separator_icon": " / ",
+            "home_icon": "home",
+            "mapped_locations": {
+              "C:": "root",
+              "C:/Users": "users",
+              "~/Desktop": "desktop",
+              "~/Documents": "documents",
+              "~/Documents/GitHub": "github",
+              "~/OneDrive/Desktop": "desktop",
+              "~/OneDrive/Documents": "documents",
+              "~/OneDrive/Documents/GitHub": "github"
+            },
+            "mapped_locations_enabled": true,
+            "style": "agnoster_short"
+          },
+          "template": " <#0373fc>{{ path \"\udb80\ude4b\" .Location }} {{ lower .Path }}</>",
+          "foreground": "#ffffff",
+          "type": "path",
+          "style": "diamond"
+        },
+        {
+          "type": "python",
+          "style": "plain",
+          "powerline_symbol": "",
+          "foreground": "#6ea1ff",
+          "template": "  {{ .Full }}"
+        },
+        {
+          "properties": {
+            "branch_icon": "\ue725 ",
+            "cache_duration": "none",
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_upstream_icon": true
+          },
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }}",
+          "foreground": "#ffce63",
+          "type": "git",
+          "style": "diamond"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "threshold": 0
+          },
+          "template": " {{ if gt .Code 0 }}<#ff625a>\uf252 {{ .FormattedMs }}</>{{ else }}<#5affa4>\uf253 {{ .FormattedMs }}</>{{ end }}",
+          "foreground": "#d8d8d8",
+          "type": "executiontime",
+          "style": "plain"
         }
-    ]
+      ],
+      "newline": true
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "\u2570\u2500",
+          "foreground": "#d8d8d8",
+          "type": "text",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "➤",
+          "foreground": "#d8d8d8",
+          "type": "text",
+          "style": "plain"
+        }
+      ],
+      "newline": true
+    }
+  ],
+  "version": 3,
+  "final_space": true
 }
