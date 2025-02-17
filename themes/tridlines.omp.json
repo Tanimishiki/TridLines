@@ -21,7 +21,7 @@
           "properties": {
             "cache_duration": "none"
           },
-          "trailing_diamond": "<#4a00b1,#4a00b1>.</>\ue0c0",
+          "trailing_diamond": "<#8400ff,#8400ff>.</>\ue0c0",
           "template": "  \ue77f {{ .Full }} ",
           "foreground": "#ffffff",
           "background": "#8400ff",
@@ -62,10 +62,6 @@
           "style": "diamond"
         },
         {
-          "properties": {
-            "cache_duration": "none",
-            "display_mode": "files"
-          },
           "trailing_diamond": "<#0d7eff,#0d7eff>.</>\ue0c0",
           "template": "  \ue235 {{ .Full }}",
           "foreground": "#d8d8d8",
