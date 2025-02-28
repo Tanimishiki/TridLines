@@ -43,7 +43,10 @@
           "style": "plain",
           "powerline_symbol": "",
           "foreground": "#6ea1ff",
-          "template": "  {{ .Full }}"
+          "template": "  {{ .Full }} {{ if .Venv }}(virtual){{ end }}",
+          "properties": {
+            "display_mode": "files"
+          }
         },
         {
           "properties": {
