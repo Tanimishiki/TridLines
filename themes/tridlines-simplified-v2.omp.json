@@ -1,0 +1,136 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "blocks": [
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "segments": [
+                {
+                    "type": "os",
+                    "style": "plain",
+                    "foreground": "#d8d8d8",
+                    "template": "  \u256d\u2500 {{ if .WSL }}WSL at {{ end }}{{.Icon}} \ueab6",
+                    "properties": {
+                        "macos": "\uf179",
+                        "windows": "\ue62a",
+                        "linux": "\ue712"
+                    }
+                },
+                {
+                    "type": "dotnet",
+                    "style": "plain",
+                    "foreground": "#ae4bff",
+                    "template": " \ue7c6 {{ .Full }}"
+                },
+                {
+                    "type": "node",
+                    "style": "plain",
+                    "powerline_symbol": "",
+                    "foreground": "#72f18e",
+                    "template": " \ued0d {{ .Full }}"
+                },
+                {
+                    "type": "python",
+                    "style": "plain",
+                    "powerline_symbol": "",
+                    "foreground": "#6ea1ff",
+                    "template": "  {{ .Full }} {{ if .Venv }}(virtual){{ end }}",
+                    "properties": {
+                        "display_mode": "files"
+                    }
+                },
+                {
+                    "properties": {
+                        "branch_icon": "\ue725 ",
+                        "cache_duration": "none",
+                        "fetch_stash_count": true,
+                        "fetch_status": true,
+                        "fetch_upstream_icon": true
+                    },
+                    "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }}",
+                    "foreground": "#ffce63",
+                    "type": "git",
+                    "style": "diamond"
+                }
+            ],
+            "newline": true
+        },
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "segments": [
+                {
+                    "properties": {
+                        "cache_duration": "none"
+                    },
+                    "template": "\u256d\u2500\uf2be  {{ lower .UserName }} on",
+                    "foreground": "#d8d8d8",
+                    "type": "text",
+                    "style": "powerline"
+                },
+                {
+                    "properties": {
+                        "cache_duration": "none",
+                        "folder_icon": "\uf141",
+                        "folder_separator_icon": " / ",
+                        "home_icon": "home",
+                        "mapped_locations": {
+                            "C:": "root",
+                            "C:/Users": "users",
+                            "~/Desktop": "desktop",
+                            "~/Documents": "documents",
+                            "~/Documents/GitHub": "github",
+                            "~/OneDrive/Desktop": "desktop",
+                            "~/OneDrive/Documents": "documents",
+                            "~/OneDrive/Documents/GitHub": "github"
+                        },
+                        "mapped_locations_enabled": true,
+                        "style": "agnoster_short"
+                    },
+                    "template": " \udb85\udedf {{ path (index (splitList \"/\" .Location) 0) .Location }} <#0373fc>\udb80\ude4b {{ lower .Path }}</>",
+                    "foreground": "#8267fd",
+                    "type": "path",
+                    "style": "diamond"
+                },
+                {
+                    "properties": {
+                        "cache_duration": "none",
+                        "threshold": 0
+                    },
+                    "template": " {{ if gt .Code 0 }}<#ff625a>\uf252 {{ .FormattedMs }}</>{{ else }}<#5affa4>\uf253 {{ .FormattedMs }}</>{{ end }}",
+                    "foreground": "#d8d8d8",
+                    "type": "executiontime",
+                    "style": "plain"
+                }
+            ],
+            "newline": true
+        },
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "segments": [
+                {
+                    "properties": {
+                        "cache_duration": "none"
+                    },
+                    "template": "\u2570\u2500",
+                    "foreground": "#d8d8d8",
+                    "type": "text",
+                    "style": "plain"
+                },
+                {
+                    "properties": {
+                        "cache_duration": "none"
+                    },
+                    "template": "➤",
+                    "foreground": "#d8d8d8",
+                    "type": "text",
+                    "style": "plain"
+                }
+            ],
+            "newline": true
+        }
+    ],
+    "version": 3,
+    "final_space": true
+}
